@@ -26,8 +26,9 @@ const Stopwatch = () => {
     }, [counter]);
 
     return (
-        <div>
-            <h1>Time {time}s</h1>
+        <div className={"stopwatch-container"}>
+            <h2>Timer </h2>
+            <h1>{time}s</h1>
             <button
                 onClick={() => {
                     setIsActive(true);
