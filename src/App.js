@@ -7,7 +7,6 @@ import Board from "./Board";
 import Monster from './Monster';
 import {useState} from "react";
 
-
 function App() {
     const [popupText, setPopupText] = useState();
     const [laps, setLaps] = useState([]);
