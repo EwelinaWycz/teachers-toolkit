@@ -1,17 +1,20 @@
-import Dice from "react-dice-roll";
-import {useState} from "react";
+import ReactDice from 'react-dice-complete'
 
-const Roll = () => {
-
-    const [dice, setDice] = useState();
-
+const Roll = ({ setPopupText }) => {
     return (
-
         <div className={"dice-container"}>
-            <Dice onRoll={(value) => {
-                setDice(value);
-            }}/>
-            <p> Wynik to {dice}</p>
+            <h2>Dice</h2>
+            <ReactDice
+                defaultRoll={1}
+                dieSize={110}
+                numDice={1}
+                rollTime={1}
+                faceColor="#3c096c"
+                dotColor="#ffffff"
+                rollDone={(value) => {
+                    setPopupText(`Dice roll is ${value}`);
+                }}
+            />
         </div>
     );
 }

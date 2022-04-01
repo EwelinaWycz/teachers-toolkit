@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Stopwatch = () => {
-    const [laps, setLaps] = useState([]);
+const Stopwatch = ({ laps, setLaps }) => {
     const [time, setTime] = useState(0);
     const [counter, setCounter] = useState(0);
     const [active, setIsActive] = useState(false);
@@ -39,7 +38,7 @@ const Stopwatch = () => {
             <button
                 onClick={() => {
                     if (active) {
-                        setLaps([...laps, time]);
+                        setLaps([...laps.slice(-3), time]);
                     }
                 }}
             >
@@ -68,11 +67,6 @@ const Stopwatch = () => {
             >
                 Restart
             </button>
-            <ul>
-                {laps.map((x, i) => {
-                    return <li key={i}>{x}</li>;
-                })}
-            </ul>
         </div>
     );
 };

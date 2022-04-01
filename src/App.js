@@ -1,12 +1,16 @@
 import'./style.scss'
+import 'react-dice-complete/dist/react-dice-complete.css'
 import Stopwatch from "./Stopwatch";
 import Dice from "./Dice";
 import Selector from "./Selector";
 import Board from "./Board";
-
+import Monster from './Monster';
+import {useState} from "react";
 
 
 function App() {
+    const [popupText, setPopupText] = useState();
+    const [laps, setLaps] = useState([]);
 
     return (
 
@@ -16,14 +20,15 @@ function App() {
                 Teacher's Toolkit
             </header>
 
-            <Board/>
+            <Board laps={laps}/>
 
-            <Selector/>
+            <Selector setPopupText={setPopupText} />
 
-            <Stopwatch/>
+            <Stopwatch laps={laps} setLaps={setLaps} />
 
-            <Dice/>
+            <Dice setPopupText={setPopupText} />
 
+            <Monster text={popupText} />
         </div>
     );
 }

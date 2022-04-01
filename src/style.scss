@@ -24,6 +24,12 @@ textarea {
   font-size: 25px;
   font-family: 'Comfortaa', cursive;
   padding: 20px;
+
+  outline: none;
+
+  &:focus {
+    box-shadow: 3px 3px 5px #64547c, 0 0 0 1px #3c096c inset;
+  }
 }
 
 .board {
@@ -36,25 +42,49 @@ textarea {
   transform: translate(-50%, -50%);
 }
 
-.selector-container {
-
+.board-overlay {
+  opacity: 0.6;
+  position: absolute;
+  pointer-events: none;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: 'Comfortaa', cursive;
+  color:#3c096c;
 }
+
 
 .dice-container {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: scale(0.7);
+  right: 100px;
+  bottom: 70px;
 }
 
-.stopwatch-container button {
+.selector-container {
+  position: absolute;
+  top: 60px;
+}
+
+.selector-container div {
+  font-family: 'Comfortaa', cursive;
+}
+
+.stopwatch-container {
+  position: absolute;
+  bottom: 60px;
+}
+
+.selector-container button {
+  margin-top: 10px;
+}
+
+.stopwatch-container button, .selector-container button {
   background-color: #3c096c;
   border: 0 solid #E5E7EB;
   box-sizing: border-box;
   color: white;
   display: flex;
-  font-family: Comfortaa;
-/*  font-size: 1rem;*/
+  font-family: 'Comfortaa', cursive;
   font-weight: 700;
   justify-content: center;
   line-height: 1.75rem;
@@ -71,11 +101,11 @@ textarea {
   touch-action: manipulation;
 }
 
-.stopwatch-container button:focus {
+.stopwatch-container button:focus, .selector-container button:focus {
   outline: 0;
 }
 
-.stopwatch-container button:after {
+.stopwatch-container button:after, .selector-container button:after {
   content: '';
   position: absolute;
   border: 1px solid #000000;
@@ -85,8 +115,48 @@ textarea {
   height: calc(100% - 1px);
 }
 
-.stopwatch-container button:hover:after {
+.stopwatch-container button:hover:after, .selector-container button:hover:after {
   bottom: 2px;
   left: 2px;
 }
 
+.monster {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 210px;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: 150px;
+  left: -50px;
+  padding: 15px 10px;
+  width: 160px;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px #64547c;
+  font-family: 'Comfortaa', cursive;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-bottom-color: white;
+  border-top: 0;
+  border-right: 0;
+  margin-left: -25px;
+  margin-top: -50px;
+  font-family: 'Comfortaa', cursive;
+}
+
+h2, h1 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+}

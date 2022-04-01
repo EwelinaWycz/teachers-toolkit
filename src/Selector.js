@@ -24,7 +24,7 @@ function getRandomStudent(students) {
     return students[Math.floor(Math.random() * students.length)];
 }
 
-function Selector() {
+const Selector = ({ setPopupText }) => {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
@@ -34,14 +34,17 @@ function Selector() {
     }, []);
 
     return (
-            <div className={"selector-container"}>
-                <h2>Students</h2>
-                {students.map((student) => (
-                    <div key={student}>{student}</div>
-                ))}
-                <button onClick={() => alert(getRandomStudent(students))}>Get random student</button>
+        <div className={"selector-container"}>
+            <h2>Students</h2>
+            {students.map((student) => (
+                <div key={student}>{student}</div>
+            ))}
+            <button onClick={() => {
+                setPopupText(`Student ${getRandomStudent(students)}`)
 
-            </div>
+            }}>Get random student</button>
+
+        </div>
     );
 }
 
