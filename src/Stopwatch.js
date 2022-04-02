@@ -14,7 +14,7 @@ const Stopwatch = ({ laps, setLaps }) => {
         );
 
         return () => {
-            clearInterval(int);
+            clearInterval();
         };
     }, []);
 
